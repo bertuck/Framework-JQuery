@@ -1,0 +1,48 @@
+Regle du GIT :
+-------------------
+hg clone => checkout
+
+hg ci => commit local
+
+hg push => envoi distant
+
+hg pull (-u) => recoi distant
+
+hg update => recoi local vers repertoir de travaille
+
+hg add/rm/addremove
+
+
+
+hg resolve -m(resolu) -u(non resolu) => resou erreur
+
+hg merge => fusionner branche
+
+hg branches => lister branche repo
+
+hg branch <nom de branche> => changer et cree branche
+
+hg tab <nom de tag> => nommer un commit
+
+
+
+exemple :
+
+cree une branche :
+
+hg branch toto
+
+hg ci
+
+hg push --new-branch
+_______________________________________
+
+merger une branche :
+
+hg up <branche dest>
+
+hg merge < branche src>
+
+hg ci
+
+hg push
