@@ -33,3 +33,4 @@ qtcAddDeployment()
 OTHER_FILES += \
     JS/Sortable/testSortable.js
 
+
