@@ -6,7 +6,7 @@ DEPLOYMENTFOLDERS = folder_01
 # Define TOUCH_OPTIMIZED_NAVIGATION for touch optimization and flicking
 #DEFINES += TOUCH_OPTIMIZED_NAVIGATION
 
-symbian:TARGET.UID3 = 0xE77A60E6
+symbian:TARGET.UID3 = 0xE259FF1E
 
 # Allow network access on Symbian
 symbian:TARGET.CAPABILITY += NetworkServices
@@ -29,3 +29,7 @@ SOURCES += main.cpp
 # Please do not modify the following two lines. Required for deployment.
 include(html5applicationviewer/html5applicationviewer.pri)
 qtcAddDeployment()
+
+OTHER_FILES += \
+    JS/Sortable/testSortable.js
+
