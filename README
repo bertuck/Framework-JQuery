@@ -1,48 +1,58 @@
+											Framework JQuery
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Description du Projet :
+-----------------------
+
+Mise en place d'une surcouche JQuery qui va permettre d'externaliser les donnees JSON en JavaScript.
+Ce qui permet de modifier plus facilement une grid ou des menu ... Permet au developpeur de gagner du temps,
+et cela devient plus facile d'acceder aux donnees.
+
+Permiere Etape :
+---------------
+
+Reussir a externaliser les donnees JSON sur JQGrid
+
+___________________________________________________________________________________________
+
 Regle du GIT :
--------------------
-hg clone => checkout
+---------------
 
-hg ci => commit local
+Sur Qt :
 
-hg push => envoi distant
+Git Commit => envoi les fichiers modifier deja adder
+Git Push => envoi les fichiers commiter
+Git Pull => recupere les fichiers du server (Mise a jour)
 
-hg pull (-u) => recoi distant
+Sur un terminal :
 
-hg update => recoi local vers repertoir de travaille
-
-hg add/rm/addremove
-
-
-
-hg resolve -m(resolu) -u(non resolu) => resou erreur
-
-hg merge => fusionner branche
-
-hg branches => lister branche repo
-
-hg branch <nom de branche> => changer et cree branche
-
-hg tab <nom de tag> => nommer un commit
-
-
+git add => ajouter un fichier ou un dossier sur le git (Preparation du commit)
+git clone => checkout
+git commit => commit local
+git push => envoi distant
+git pull (-u) => recoi distant
+git update => recoi local vers repertoir de travaille
+git add/rm/addremove
+git resolve -m(resolu) -u(non resolu) => resou erreur
+git merge => fusionner branche
+git branches => lister branche repo
+git branch <nom de branche> => changer et cree branche
+git tab <nom de tag> => nommer un commit
 
 exemple :
 
-cree une branche :
+	cree une branche :
 
-hg branch toto
+	     git branch toto
 
-hg ci
+	     git commit
 
-hg push --new-branch
+	     git push --new-branch
 _______________________________________
 
 merger une branche :
 
-hg up <branche dest>
-
-hg merge < branche src>
-
-hg ci
-
-hg push
+git up <branche dest>
+git merge <branche src>
+git commit
+git push
