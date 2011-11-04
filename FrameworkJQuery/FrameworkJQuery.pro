@@ -31,6 +31,12 @@ include(html5applicationviewer/html5applicationviewer.pri)
 qtcAddDeployment()
 
 OTHER_FILES += \
-    JS/Sortable/testSortable.js
+    JS/Sortable/testSortable.js \
+    html/jqgrid.html \
+    html/index.html \
+    html/JS/Grid/GridTest.js
+
+
+
 
 
