@@ -26,17 +26,16 @@ $(document).ready(function(){
    //$("#theGrid").jqGrid_setPagingValue({"currpage":1,"lastpage":12,"totalrows":60});
   myGrid.jqGrid({
     datatype:'clientSide',
-                    currpage: "4",
-                     totalpages: "1",
+    page: "1",
     altRows:true,
     colNames:['Name', 'Side', 'Power'],
     colModel:[
       { name:'name', index: 'name' },
       { name:'side', index: 'side' },
-      { name:'power', index: 'power' } ],
+                 { name:'power', index: 'power', datatype: "int"} ],
     pager: jQuery('#pager'),
     viewrecords: true,
-                     rowList: [10, 2, 1],
+                     rowList: [22, 10, 5],
     imgpath: 'css/start/images',
     caption: 'The Force: Who\'s Who?',
     height: "100%",
