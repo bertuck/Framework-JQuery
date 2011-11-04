@@ -23,9 +23,11 @@ function resize_the_grid()
 $(document).ready(function(){
 
   var myGrid = $('#theGrid');
-
+   //$("#theGrid").jqGrid_setPagingValue({"currpage":1,"lastpage":12,"totalrows":60});
   myGrid.jqGrid({
     datatype:'clientSide',
+                    currpage: "4",
+                     totalpages: "1",
     altRows:true,
     colNames:['Name', 'Side', 'Power'],
     colModel:[
@@ -34,10 +36,15 @@ $(document).ready(function(){
       { name:'power', index: 'power' } ],
     pager: jQuery('#pager'),
     viewrecords: true,
+                     rowList: [10, 2, 1],
     imgpath: 'css/start/images',
-                      caption: 'The Force: Who\'s Who?',
-                      height: "100%"
+    caption: 'The Force: Who\'s Who?',
+    height: "100%",
+    autowidth: true,
+    autoheight: true,
   });
+ //jQuery("#theGrid").jqGrid('navGrid', jQuery('#pager'), { edit: false, add: false, del: false })
+
   var tab = initTab(20);
   addTabData(tab);
   /*myGrid.addRowData("1", {name:"Luke", side:"Good", power:"6"});
