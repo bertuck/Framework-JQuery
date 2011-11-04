@@ -34,7 +34,9 @@ OTHER_FILES += \
     JS/Sortable/testSortable.js \
     html/jqgrid.html \
     html/index.html \
-    html/JS/Grid/GridTest.js
+    html/JS/Grid/GridTest.js \
+    html/JQGridTest.html
+
 
 
 
