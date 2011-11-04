@@ -1,3 +1,20 @@
+function initTab(Nbelems)
+{
+    var tabinfos= new Array(Nbelems);
+    for (var x = 0; x <= Nbelems; x++)
+         {
+            tabinfos[x] = new Array(3);
+            tabinfos[x]= {name:"Vader", side:"Dark", power:x};
+         }
+    return tabinfos;
+}
+
+function addTabData(tab)
+{
+    for (x = 0; tab[x]; x++)
+        $('#theGrid').addRowData(x, tab[x]);
+}
+
 function resize_the_grid()
 {
   $('#theGrid').fluidGrid({base:'#grid_wrapper', offset:-20});
@@ -21,10 +38,11 @@ $(document).ready(function(){
                       caption: 'The Force: Who\'s Who?',
                       height: "100%"
   });
-
-  myGrid.addRowData("1", {name:"Luke", side:"Good", power:"6"});
+  var tab = initTab(20);
+  addTabData(tab);
+  /*myGrid.addRowData("1", {name:"Luke", side:"Good", power:"6"});
   myGrid.addRowData("2", {name:"Vader", side:"Dark", power:"9"});
-  myGrid.addRowData("3", {name:"Han", side:"meh?", power:"0"});
+  myGrid.addRowData("3", {name:"Han", side:"meh?", power:"0"});*/
 
   //resize_the_grid();
 });
