@@ -26,7 +26,7 @@ $(document).ready(function(){
   myGrid.addRowData("2", {name:"Vader", side:"Dark", power:"9"});
   myGrid.addRowData("3", {name:"Han", side:"meh?", power:"0"});
 
-  resize_the_grid();
+  //resize_the_grid();
 });
 
-$(window).resize(resize_the_grid);
+//$(window).resize(resize_the_grid);
