@@ -41,5 +41,5 @@ jQuery("#a4").click( function(){
       var myfirstrow = {id:"1", invdate:"2007-10-01", name:"Kenni", amount:"200.00", tax:"10.00", total:"210.00", note:"10"};
       var mysecondrow = {id:"2", invdate:"2007-10-01", name:"Mario", amount:"300.00", tax:"20.00", total:"230.00", note:"10"};
       jQuery("#list5").addRowData("1", myfirstrow);
-      jQuery("#list5").addRowData("3", mysecondrow);
+      jQuery("#list5").addRowData("2", mysecondrow);
 });
