@@ -35,7 +35,11 @@ OTHER_FILES += \
     html/jqgrid.html \
     html/index.html \
     html/JS/Grid/GridTest.js \
-    html/JQGridTest.html
+    html/JQGridTest.html \
+    html/JS/Grid/interface.js
+
+
+
 
 
 
