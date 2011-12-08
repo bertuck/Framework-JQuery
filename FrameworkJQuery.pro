@@ -31,18 +31,19 @@ include(html5applicationviewer/html5applicationviewer.pri)
 qtcAddDeployment()
 
 OTHER_FILES += \
-    JS/Sortable/testSortable.js \
-    html/jqgrid.html \
-    html/index.html \
-    html/JS/Grid/GridTest.js \
-    html/JQGridTest.html \
-    html/JS/Grid/interface.js \
-    Formation/interface.js \
-    Formation/jquery.js \
-    Formation/test.html \
-    Formation/FW_Formation.js \
-    JQGrid/JS/Grid/GridTest.js \
-    JQGrid/JS/Grid/interface.js
+    FW_Formation/test.html \
+    FW_Formation/css/formation.css \
+    FW_Formation/JS/FW_Formation.js \
+    FW_Formation/JS/interface.js \
+    FW_Grid/test.html \
+    FW_Grid/JS/Grid.js \
+    FW_Grid/JS/interface.js \
+    FW_Grid/css/site.css
+
+
+
+
+
 
 
 
