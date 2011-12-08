@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    var myGrid = $('#'+form[0].name);
     var tab = InitTab(19);
     myGrid.jqGrid(CreateGrid());
     AddTabData(tab);
@@ -15,6 +14,7 @@ function InitTab(Nbelems) {
 }
 
 function AddTabData(tab) {
+    alert('#'+form[0].name);
     for (x = 0; tab[x]; x++)
         $('#'+form[0].name).addRowData(x, tab[x]);
 }

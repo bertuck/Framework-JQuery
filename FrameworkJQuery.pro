@@ -38,21 +38,13 @@ OTHER_FILES += \
     FW_Grid/test.html \
     FW_Grid/JS/Grid.js \
     FW_Grid/JS/interface.js \
-    FW_Grid/css/site.css
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    FW_Grid/css/site.css \
+    src/FW_Grid/test.html \
+    src/FW_Grid/JS/Grid.js \
+    src/FW_Grid/JS/interface.js \
+    src/FW_Formation/test.html \
+    src/FW_Formation/JS/FW_Formation.js \
+    src/FW_Formation/JS/interface.js
 
 
 
