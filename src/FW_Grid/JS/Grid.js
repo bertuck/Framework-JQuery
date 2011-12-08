@@ -14,7 +14,6 @@ function InitTab(Nbelems) {
 }
 
 function AddTabData(tab) {
-    alert('#'+form[0].name);
     for (x = 0; tab[x]; x++)
         $('#'+form[0].name).addRowData(x, tab[x]);
 }
