@@ -1,6 +1,6 @@
 // Toute les option sont dispo sut : http://www.trirand.com/jqgridwiki/doku.php?id=wiki:options
 
-var gridName = "Nom de la grid";
+var form = [{name:"theGrid", width: 100}]
 
 var source = [
                 {name:"Number", type:"int"},
