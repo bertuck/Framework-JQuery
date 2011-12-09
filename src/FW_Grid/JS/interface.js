@@ -1,6 +1,4 @@
-// Toute les option sont dispo sut : http://www.trirand.com/jqgridwiki/doku.php?id=wiki:options
-
-var form   = [{name:"theGrid", width: 100}]
+var conf   = {name:"theGrid", width: 100}
 
 var source = [
                 {name:"Number", type:"int"},
@@ -13,3 +11,5 @@ var theme = [
                 {name:"Number", width:"50", align:"left", editable:true},
                 {name:"String", width:"50", align:"left",  editable:true}
             ]
+
+var grid = {conf:conf, source:source, theme:theme}

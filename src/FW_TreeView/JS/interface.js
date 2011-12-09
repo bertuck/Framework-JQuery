@@ -1,4 +1,4 @@
-var form = [{name:"browser", width: 100}]
+var conf   = {name:"browser", width: 100}
 
 var source = [
                 {name:"Folder1", type:"folder", subfolder: [{name:"Folder1.1", type:"folder", subfolder: [{name:"Folder1.1.1", type:"file"}]}, {name:"Folder1.2", type:"folder"}]},
@@ -16,3 +16,4 @@ var theme = [
                 {name:"Folder3", state:"closed", items:[{name:"Item3.1"}, {name:"Item3.2"}]}
             ]
 
+var treeview = {conf:conf, source:source, theme:theme}

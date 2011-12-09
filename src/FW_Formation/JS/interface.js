@@ -1,6 +1,4 @@
-var divName = "demo";
-
-var form = [	{name:"form_demo", width:"500", widhtaction:"send_form.php", method:"POST"} ]
+var conf  =            {name:"Formation", width:"500", widhtaction:"send_form.php", method:"POST"}
 
 var source =[
                         {name:"nom", type:"string"},
@@ -27,3 +25,5 @@ var theme = [
                         {name:"Submit", display:"Submit"},
                         {name:"Reset", display:"Reset", type:"reset"}
 			]
+
+var formation = {conf:conf, source:source, theme:theme}

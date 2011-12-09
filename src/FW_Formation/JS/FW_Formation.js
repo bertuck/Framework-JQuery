@@ -1,3 +1,4 @@
+var Formation;
 var miniJSON;
 var Types = new Array(7);
 Types["string"] = AddInput;
@@ -9,50 +10,52 @@ Types["textarea"] = AddTextarea;
 Types["select"] = AddSelect;
 Types["button"] = AddButton;
 
-$(document).ready(function(){
-  var FW = $('#'+ divName);
-  FW.formation();
-  CreateForm(FW);
-});
+function FW_FORMATION(formation) {
+    Formation = formation;
+    document.write("<div class='stylized container' id='"+Formation.conf.name+"'><h1>"+Formation.conf.name+"</h1></div>");
+    var FW = $('#'+ Formation.conf.name);
+    FW.formation();
+    CreateForm(FW);
+}
 
 function CreateForm(FW) {
-    document.getElementById(divName).style.width=form[0].width + "px";
-    document.getElementById(divName).style.height=form[0].height + "px";
-    for (var nb = 0; nb < source.length; nb++)
-       Types[source[nb].type](FW, nb);
+    document.getElementById(Formation.conf.name).style.width=Formation.conf.width + "px";
+    document.getElementById(Formation.conf.name).style.height=Formation.conf.height + "px";
+    for (var nb = 0; nb < Formation.source.length; nb++)
+       Types[Formation.source[nb].type](FW, nb);
 }
 
 function AddInput(FW, nb){
-    miniJSON = {type:"text",labelValue:theme[nb].display,validation:theme[nb].validation, required:theme[nb].required,defaultValue:theme[nb].defaultValue};
+    miniJSON = {type:"text",labelValue:Formation.theme[nb].display,validation:Formation.theme[nb].validation, required:Formation.theme[nb].required,defaultValue:Formation.theme[nb].defaultValue};
     FW.formation.addInput(miniJSON);
 }
 
 function AddRadios(FW, nb){
-    miniJSON = {required:theme[nb].required, labelValue:theme[nb].display, legend:theme[nb].legend};
-    FW.formation.addRadios(theme[nb].choices, miniJSON);
+    miniJSON = {required:Formation.theme[nb].required, labelValue:Formation.theme[nb].display, legend:Formation.theme[nb].legend};
+    FW.formation.addRadios(Formation.theme[nb].choices, miniJSON);
 }
 
 function AddCheckboxes(FW, nb){
-    miniJSON = {required:theme[nb].required, labelValue:theme[nb].display, legend:theme[nb].legend};
-    FW.formation.addCheckboxes(theme[nb].choices, miniJSON);
+    miniJSON = {required:Formation.theme[nb].required, labelValue:Formation.theme[nb].display, legend:Formation.theme[nb].legend};
+    FW.formation.addCheckboxes(Formation.theme[nb].choices, miniJSON);
 }
 
 function AddCaptcha(FW, nb){
-    miniJSON = {captchaQuestions:source[nb].captchaQuestions, required:theme[nb].required};
+    miniJSON = {captchaQuestions:Formation.source[nb].captchaQuestions, required:Formation.theme[nb].required};
     FW.formation.addCaptcha(miniJSON);
 }
 
 function AddTextarea(FW, nb){
-    miniJSON = {name:source[nb].name, type:source[nb].input, labelValue:theme[nb].display, required:theme[nb].required, cols:theme[nb].cols, row:theme[nb].row};
+    miniJSON = {name:Formation.source[nb].name, type:Formation.source[nb].input, labelValue:Formation.theme[nb].display, required:Formation.theme[nb].required, cols:Formation.theme[nb].cols, row:Formation.theme[nb].row};
     FW.formation.addTextarea(miniJSON);
 }
 
 function AddSelect(FW, nb){
-    miniJSON = {required:theme[nb].required, labelValue:theme[nb].display, legend:theme[nb].legend};
-    FW.formation.addSelect(theme[nb].choices, miniJSON);
+    miniJSON = {required:Formation.theme[nb].required, labelValue:Formation.theme[nb].display, legend:Formation.theme[nb].legend};
+    FW.formation.addSelect(Formation.theme[nb].choices, miniJSON);
 }
 
 function AddButton(FW, nb){
-    miniJSON = {value:theme[nb].name, type:theme[nb].type};
+    miniJSON = {value:Formation.theme[nb].name, type:Formation.theme[nb].type};
     FW.formation.addButton(miniJSON);
 }
