@@ -27,16 +27,45 @@ function CreateTree() {
     document.write(body);
 }
 
+function DoThemeFolder(tree)
+{
+    var found = 0;
+    for (var i = 0; i < theme.length; i++)
+        if (theme[i].name == tree.name) {
+            found = 1;
+            if (theme[i].state == "opened")
+                body += "<li><span class='";
+            else
+                body += "<li class='closed'><span class='";
+    }
+    if (found == 0)
+       body += "<li><span class='";
+}
+
+function DoItem(tree) {
+    for (var i = 0; i < theme.length; i++) {
+        if (theme[i].items !== undefined)
+            if (theme[i].name == tree.name) {
+                body += "<ul>\n";
+                for (var j = 0; j < theme[i].items.length; j++)
+                    body += "<li><span class='file'>" + theme[i].items[j].name + "</span></li>\n";
+                body += "</ul>\n";
+            }
+    };
+}
+
 function DoTree(tree) {
-    body += "<li><span class='";
+    DoThemeFolder(tree);
     body += tree.type +"'>"+ tree.name + "</span>";
-    if (tree.sub === undefined) {
+    if (tree.subfolder === undefined) {
+        DoItem(tree);
         body += "</li>\n";
     }
-    else {
-        for (var i = 0; i < tree.sub.length; i++) {
+    else if (tree.subfolder !== undefined) {
+        for (var i = 0; i < tree.subfolder.length; i++) {
             body += "<ul>\n";
-            DoTree(tree.sub[i]);
+            DoTree(tree.subfolder[i], 1);
+            DoItem(tree);
             body += "</ul>\n";
         }
     }
