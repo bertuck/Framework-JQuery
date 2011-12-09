@@ -11,7 +11,7 @@ et cela devient plus facile d'acceder aux donnees.
 Permiere Etape :
 ---------------
 
-Reussir a externaliser les donnees JSON sur JQGrid
+Reussir a externaliser les donnees JSON sur tout les plugins JQuery qui sont utilent pour creer une application web. Cela permet de creer plus rapidement et facilement l'application. 
 
 ___________________________________________________________________________________________
 
