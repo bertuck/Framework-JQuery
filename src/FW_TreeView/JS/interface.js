@@ -1,4 +1,4 @@
-var conf   = {name:"browser", width: 100}
+var conf   =    {name:"browser", width: 100}
 
 var source = [
                 {name:"Folder1", type:"folder", subfolder: [{name:"Folder1.1", type:"folder", subfolder: [{name:"Folder1.1.1", type:"file"}]}, {name:"Folder1.2", type:"folder"}]},

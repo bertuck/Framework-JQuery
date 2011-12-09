@@ -1,41 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <head>
+          <title>TABS JQuery</title>
 
-</head>
-<body style="font-size:62.5%;">
-  <script>
-   $(document).ready(function() {
-    $("#tabs").tabs();
-  	$("#tabs").tabs("add","#content4","Fourth Tab");
-   	$("#content4").css("display","block");
-  });
- </script>
-<div id="tabs">
-<ul>
-	<li><a href="#content1"><span>One</span></a></li>
-    <li><a href="#content2"><span>Two</span></a></li>
-    <li><a href="#content3"><span>Three</span></a></li>
-</ul>
-    <div id="content1">
-        <p>First tab is active by default:</p>
-        <pre><code>$('#example').tabs();</code></pre>
-    </div>
-    <div id="content2">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-    </div>
-    <div id="content3">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-    </div>
-    <div id="content4" style="display:none;">
-    <p>"test content 4"</p>
-    </div>
-</div>
-</body>
+        <link href="../../lib/JQ_System/ui/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/JQ_System/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../lib/JQ_System/jquery-ui-1.7.2.custom.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="JS/interface.js" type="text/javascript" charset="utf-8"></script>
+        <script src="JS/Tabs.js" type="text/javascript" charset="utf-8"></script>
+
+   </head>
+
+   <body style="font-size:62.5%;">
+
+        <script>FW_TABS(tabs);</script>
+
+   </body>
 </html>

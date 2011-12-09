@@ -43,12 +43,20 @@ OTHER_FILES += \
     src/FW_Grid/JS/Grid.js \
     src/FW_Grid/JS/interface.js \
     src/FW_Formation/test.html \
-    src/FW_Formation/JS/FW_Formation.js \
     src/FW_Formation/JS/interface.js \
     src/FW_TreeView/test.html \
     src/FW_TreeView/JS/TreeView.js \
     src/FW_TreeView/JS/interface.js \
-    src/FW_TreeView/css/jquery.treeview.css
+    src/FW_TreeView/css/jquery.treeview.css \
+    src/FW_Tabs/test.html \
+    src/FW_Tabs/JS/interface.js \
+    src/FW_Tabs/JS/Tabs.js \
+    src/FW_Formation/JS/Formation.js
+
+
+
+
+
 
 
 

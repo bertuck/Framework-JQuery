@@ -1,11 +1,40 @@
-  $(document).ready(function() 
-  {
-  var $mytabs = $("#"+TabsName).tabs(TabsOpt);
-   for (var nb1 = 0; nb1 < source.length; ++nb1)
-    	for (var nb2 = 0; nb2 < theme.length; ++nb2)
-            if (source[nb1].name == theme[nb2].name)
-            {
-				mytabs.tabs("add", source[nb1].content, source[nb1].name);				
- 			 	$(source[nb1].content).css("display","block");
- 			}
- });
+var Tabs;
+var Styles = new Array(7);
+Styles["text"] = GetText;
+Styles["code"] = GetCode
+
+$(document).ready(
+            function() {
+                $("#"+tabs.conf.name).tabs();
+            }
+);
+
+function FW_TABS(tabs) {
+    Tabs = tabs;
+    InitTabs();
+    FillTabs();
+}
+
+function InitTabs() {
+    document.write("<div id='tabs'>");
+    document.write("<ul>");
+    for(var i = 0; i < tabs.source.length; i++) {
+        document.write("<li><a href='#"+tabs.source[i].content+"'><span>"+tabs.theme[i].display+"</span></a></li>");
+    }
+    document.write("</ul>");
+}
+
+function FillTabs() {
+    for(var j = 0; j < tabs.source.length; j++) {
+        document.write("<div id='"+tabs.source[j].content+"'><p>"+Styles[tabs.theme[j].style](j)+"</p></div>");
+    }
+    document.write("</div>");
+}
+
+function GetText(id) {
+    return tabs.theme[id].display;
+}
+
+function GetCode(id) {
+    return "<pre><code>"+tabs.theme[id].display+"</code></pre>";
+}

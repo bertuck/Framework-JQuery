@@ -1,4 +1,4 @@
-var conf   = {name:"theGrid", width: 100}
+var conf   =    {name:"theGrid", width: 100}
 
 var source = [
                 {name:"Number", type:"int"},

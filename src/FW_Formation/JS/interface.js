@@ -1,4 +1,4 @@
-var conf  =            {name:"Formation", width:"500", widhtaction:"send_form.php", method:"POST"}
+var conf  =             {name:"Formation", width:"500", widhtaction:"send_form.php", method:"POST"}
 
 var source =[
                         {name:"nom", type:"string"},
