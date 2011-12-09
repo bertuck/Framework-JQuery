@@ -18,11 +18,6 @@ ________________________________________________________________________________
 Regle du GIT :
 ---------------
 
-Sur Qt :
-
-Git Commit => envoi les fichiers modifier deja adder
-Git Push => envoi les fichiers commiter
-Git Pull => recupere les fichiers du server (Mise a jour)
 
 Sur un terminal :
 
