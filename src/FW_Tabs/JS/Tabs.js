@@ -19,7 +19,7 @@ function InitTabs() {
     document.write("<div id='tabs'>");
     document.write("<ul>");
     for(var i = 0; i < tabs.source.length; i++) {
-        document.write("<li><a href='#"+tabs.source[i].content+"'><span>"+tabs.theme[i].display+"</span></a></li>");
+        document.write("<li><a href='#"+tabs.source[i].content+"'><span>"+tabs.theme[i].name+"</span></a></li>");
     }
     document.write("</ul>");
 }
