@@ -51,7 +51,13 @@ OTHER_FILES += \
     src/FW_Tabs/test.html \
     src/FW_Tabs/JS/interface.js \
     src/FW_Tabs/JS/Tabs.js \
-    src/FW_Formation/JS/Formation.js
+    src/FW_Formation/JS/Formation.js \
+    src/FW_Dialog/test.html \
+    src/FW_Dialog/JS/Dialog.js \
+    src/FW_Dialog/JS/interface.js
+
+
+
 
 
 
