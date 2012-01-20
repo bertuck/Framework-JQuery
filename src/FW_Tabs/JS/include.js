@@ -1,1 +1,0 @@
-document.write("<link href='../../lib/JQ_System/ui/jquery-ui.css' rel='stylesheet' type='text/css'/><script src='../../lib/JQ_System/jquery-1.7.min.js'></script><script src='../../lib/JQ_System/jquery-ui-1.7.2.custom.min.js'></script>");
