@@ -30,7 +30,7 @@ function CreateGrid() {
     return MyJSON;
 }
 
-function InitTab(Nbelems) {
+function InitTab(Nbelems, tabinfos) {
     var tabinfos= new Array(Nbelems);
     for (var x = 0; x <= Nbelems; x++) {
         tabinfos[x] = new Array(3);
