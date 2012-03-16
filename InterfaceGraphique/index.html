@@ -407,6 +407,7 @@
 	.fg-toolbar { padding: .5em; margin: 0;  }
 	.fg-toolbar .fg-buttonset { margin-right:1.5em; padding-left: 1px; }
 	.fg-toolbar .fg-button { font-size: 1em;  }
+	.nextprev { float:right; }
 
 	/*demo page css*/
 	h2 { clear: both; padding-top:1.5em; margin-top:0; } 
@@ -418,7 +419,7 @@
 	<div class="fg-buttonset ui-helper-clearfix">
 	<div id='content'>
 		<div id='basic-modal'>
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic" title="Open"><span class="ui-icon ui-icon-folder-open"></span> Open</a>
+		<a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic" title="Open"><span class="ui-icon ui-icon-circle-plus"></span> New Project</a>
 		</div>
 		<div id="basic-modal-content">
 			<h3>Create tour project</h3>
@@ -447,15 +448,19 @@
 		</div>
 		
 	</div>
-	<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Save"><span class="ui-icon ui-icon-disk"></span> Save</a>
-
+		<div style="margin: 0 100px;">
+		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Save"><span class="ui-icon ui-icon-disk"></span> Save</a>
+		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Commit"><span class="ui-icon ui-icon-check"></span> Commit</a>
 		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Delete"><span class="ui-icon ui-icon-trash"></span> Delete</a>
-	<div class="fg-buttonset ui-helper-clearfix" >
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Print"><span class="ui-icon ui-icon-print"></span> Print</a>
+		</div>
+	<div class="fg-buttonset ui-helper-clearfix" style="margin: 0 50px;">
+		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Download"><span class="ui-icon ui-icon-arrowthickstop-1-s"></span> Download</a>
 		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Email"><span class="ui-icon ui-icon-mail-closed"></span> Email</a>
 	</div>
+	<div class="nextprev" style="margin: 0 0px;">
 	<a href="#" class="fg-button ui-state-default fg-button-icon-left ui-corner-all"><span class="ui-icon ui-icon-circle-minus"></span>Previous</a>
 	<a href="#" class="fg-button ui-state-default fg-button-icon-right ui-corner-all"><span class="ui-icon ui-icon-circle-plus"></span>Next</a>
+	</div>
 	<div class="fg-buttonset fg-buttonset-single ui-helper-clearfix" style="margin: 0 10px;">
 		<button class="fg-button ui-state-default ui-state-active ui-priority-primary ui-corner-left">Edit</button>
 		<button class="fg-button ui-state-default ui-priority-primary ui-corner-right">View</button>
