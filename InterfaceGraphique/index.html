@@ -12,10 +12,11 @@
 	<title>Accordions and Tabs</title> 
 
 
-
+	
 	<link rel="stylesheet" type="text/css" href="http://layout.jquery-dev.net/lib/css/layout-default-latest.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="http://www.trirand.com/blog/jqgrid/themes/ui.multiselect.css" />
+	<link type='text/css' href='css/basic.css' rel='stylesheet' media='screen' />
 
 	<style type="text/css">
 
@@ -78,8 +79,7 @@
 
 	</style>
 
-
-
+	
 	<script type="text/javascript" src="http://layout.jquery-dev.net/lib/js/jquery-latest.js"></script> 
 
 	<script type="text/javascript" src="http://layout.jquery-dev.net/lib/js/jquery-ui-latest.js"></script> 
@@ -126,8 +126,33 @@
 
 	<script src="http://www.trirand.com/blog/jqgrid/js/jquery.contextmenu.js" type="text/javascript"></script>
 	<script src="js/jquery.treeview.js" type="text/javascript"></script>
+	<script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+	<script type='text/javascript' src='js/basic.js'></script>
 	
 	<script>
+	$(function(){
+		//all hover and click logic for buttons
+		$(".fg-button:not(.ui-state-disabled)")
+		.hover(
+			function(){ 
+				$(this).addClass("ui-state-hover"); 
+			},
+			function(){ 
+				$(this).removeClass("ui-state-hover"); 
+			}
+		)
+		.mousedown(function(){
+				$(this).parents('.fg-buttonset-single:first').find(".fg-button.ui-state-active").removeClass("ui-state-active");
+				if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') ){ $(this).removeClass("ui-state-active"); }
+				else { $(this).addClass("ui-state-active"); }	
+		})
+		.mouseup(function(){
+			if(! $(this).is('.fg-button-toggleable, .fg-buttonset-single .fg-button,  .fg-buttonset-multi .fg-button') ){
+				$(this).removeClass("ui-state-active");
+			}
+		});
+	});
+	var TABS;
 	$(function() {
 		var $tab_title_input = $( "#tab_title"),
 			$tab_content_input = $( "#tab_content" );
@@ -145,7 +170,7 @@
 			var index = $( "li", $tabs ).index( $( this ).parent() );
 			$tabs.tabs( "remove", index );
 		});
-
+		$TABS = $tabs;
 		// modal dialog init: custom buttons and a "close" callback reseting the form inside
 		var $dialog = $( "#dialog" ).dialog({
 			autoOpen: false,
@@ -166,7 +191,7 @@
 				$form[ 0 ].reset();
 			}
 		});
-
+		
 		// addTab form: calls addTab function on submit and closes the dialog
 		var $form = $( "form", $dialog ).submit(function() {
 			addTab();
@@ -198,6 +223,22 @@
 	</script>
 
 	<script type="text/javascript">
+	var Project;
+	function gui_addGridData() {
+		var tabinfos= new Array(5);
+		tabinfos[0]= {name:"Name", value:Project.name};
+		tabinfos[1]= {name:"Version", value:Project.version};
+		for (x = 0; tabinfos[x]; x++)
+		jQuery('#rowed3').jqGrid('addRowData', x, tabinfos[x]);
+	}
+	function gui_createProject(){ 
+		Project = {
+			name: document.getElementById('ProjectName').value,
+			version: document.getElementById('ProjectVersion').value,
+			element: 'default'
+		};
+    }    
+			
 	$(document).ready(function(){
 		$("#browser").treeview({
 			toggle: function() {
@@ -205,10 +246,19 @@
 			}
 		});
 		
-		$("#add").click(function() {
-			var branches = $("<li><span class='folder'>New Sublist</span><ul>" + 
-				"<li><span class='file'>Item1</span></li>" + 
-				"<li><span class='file'>Item2</span></li></ul></li>").appendTo("#browser");
+		$("#Create").click(function() {
+			if (Project.name == "") {
+				var branches = $("<li><span class='folder'>No Name</span><ul>" + 
+					"<li><span class='file'>Item1</span></li>" + 
+					"<li><span class='file'>Item2</span></li></ul></li>").appendTo("#browser");
+					}
+			else {
+			$TABS.tabs( "add", "#tab_Content",Project.name);
+			gui_addGridData();
+			var branches = $("<li><span class='folder'>"+Project.name+"</span><ul>" + 
+					"<li><span class='file'>Header</span></li>" + 
+					"<li><span class='file'>Body</span></li></ul></li>").appendTo("#browser");
+			}
 			$("#browser").treeview({
 				add: branches
 			});
@@ -312,7 +362,7 @@
 
 		// THEME SWITCHER
 
-		addThemeSwitcher('#east-toolbar',{ top: '12px', right: '5px' });
+		addThemeSwitcher('#basic-modal-content',{ top: '150px', right: '170px' });
 
 		// if a new theme is applied, it could change the height of some content,
 
@@ -323,9 +373,6 @@
 		setTimeout( pageLayout.resizeAll, 2000 ); /* allow time for browser to re-render with new theme */
 
 	});
-
-
-
 	</script> 
 
     
@@ -353,8 +400,9 @@
 	
 	.fg-buttonset { float:left; }
 	.fg-buttonset .fg-button { float: left; }
+	.fg-buttonset-single { float: right; }
 	.fg-buttonset-single .fg-button, 
-	.fg-buttonset-multi .fg-button { margin-right: -1px;}
+	.fg-buttonset-multi .fg-button { margin-right: 0px;}
 	
 	.fg-toolbar { padding: .5em; margin: 0;  }
 	.fg-toolbar .fg-buttonset { margin-right:1.5em; padding-left: 1px; }
@@ -368,21 +416,56 @@
 <div class="ui-layout-north ui-widget-content add-padding">
 <div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
 	<div class="fg-buttonset ui-helper-clearfix">
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all" title="Open"><span class="ui-icon ui-icon-folder-open"></span> Open</a>
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Save"><span class="ui-icon ui-icon-disk"></span> Save</a>
+	<div id='content'>
+		<div id='basic-modal'>
+		<a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic" title="Open"><span class="ui-icon ui-icon-folder-open"></span> Open</a>
+		</div>
+		<div id="basic-modal-content">
+			<h3>Create tour project</h3>
+			<p>Put the name, the version and choose a skin of the project.</p>
+			<p>Name project:</p><input type="text" id="ProjectName" name="Name Project" />
+			<p>version:</p><input type="text" id="ProjectVersion" name="Version Project" /> 
+			<div class="fg-buttonset fg-buttonset-single">
+				<button class="fg-button ui-state-default ui-priority-primary ui-corner-left">Visual</button>
+				<button class="fg-button ui-state-default ui-priority-primary">Code</button>
+				<button class="fg-button ui-state-default ui-priority-primary">Split</button>
+				<button class="fg-button ui-state-default ui-priority-primary ui-corner-right">Preview</button>
+			</div>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			<button id="Create" onclick="gui_createProject()"class="fg-button ui-state-default ui-corner-all no simplemodal-close" type="button">Create</button>
+		</div>
+		</div>
+
+		<!-- preload the images -->
+		<div style='display:none'>
+			<img src='img/basic/x.png' alt='' />
+		</div>
+		
+	</div>
+	<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Save"><span class="ui-icon ui-icon-disk"></span> Save</a>
 
 		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Delete"><span class="ui-icon ui-icon-trash"></span> Delete</a>
-	</div>
-	<div class="fg-buttonset ui-helper-clearfix">
+	<div class="fg-buttonset ui-helper-clearfix" >
 		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Print"><span class="ui-icon ui-icon-print"></span> Print</a>
 		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Email"><span class="ui-icon ui-icon-mail-closed"></span> Email</a>
 	</div>
-	<div class="fg-buttonset fg-buttonset-single ui-helper-clearfix">
+	<a href="#" class="fg-button ui-state-default fg-button-icon-left ui-corner-all"><span class="ui-icon ui-icon-circle-minus"></span>Previous</a>
+	<a href="#" class="fg-button ui-state-default fg-button-icon-right ui-corner-all"><span class="ui-icon ui-icon-circle-plus"></span>Next</a>
+	<div class="fg-buttonset fg-buttonset-single ui-helper-clearfix" style="margin: 0 10px;">
 		<button class="fg-button ui-state-default ui-state-active ui-priority-primary ui-corner-left">Edit</button>
-
 		<button class="fg-button ui-state-default ui-priority-primary ui-corner-right">View</button>
 	</div>
+	
+	
 </div>
+
+	
+
 </div> 
 
 <div class="ui-layout-south ui-widget-content add-padding">South</div> 
@@ -395,38 +478,13 @@
 
 	<div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 0px;">
 
-		<b>Explorer</b><br/>
+		</br><b>Explorer</b><br/>
 		
 		</div >
 		<div class="ui-widget-header add-padding" style="margin: 0 10px;">
 				<ul id="browser" class="filetree treeview-famfamfam">
-		<li><span class="folder">Folder 1</span>
-			<ul>
-				<li><span class="folder">Item 1.1</span>
-					<ul>
-						<li><span class="file">Item 1.1.1</span></li>
-					</ul>
-				</li>
-				<li><span class="folder">Folder 2</span>
-					<ul>
-						<li><span class="folder">Subfolder 2.1</span>
-							<ul id="folder21">
-								<li><span class="file">File 2.1.1</span></li>
-								<li><span class="file">File 2.1.2</span></li>
-							</ul>
-						</li>
-						<li><span class="folder">Subfolder 2.2</span>
-							<ul>
-								<li><span class="file">File 2.2.1</span></li>
-								<li><span class="file">File 2.2.2</span></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			</li>
-			</ul>
-			
+				</ul>
+			</br>
 		</div>
 		
 	<div id="accordion-west">
@@ -452,58 +510,6 @@
 				<p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p><p>.</p>
 
 			</div>
-
-
-
-			<h3><a href="#">Section 2</a></h3>
-
-			<div>
-
-				<p style="font-weight: bold;">Sed Non Urna</p>
-
-				<p>Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus.
-
-					Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit,
-
-					faucibus interdum tellus libero ac justo.</p>
-
-				<p>Vivamus non quam. In suscipit faucibus urna.</p>
-
-			</div>
-
-
-
-			<h3><a href="#">Section 3</a></h3>
-
-			<div>
-
-				Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-
-				Phasellus pellentesque purus in massa. Aenean in pede.
-
-			</div>
-
-
-
-			<h3><a href="#">Section 4</a></h3>
-
-			<div>
-
-				<p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
-
-					ac turpis egestas.</p>
-
-				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-
-					Aenean lacinia mauris vel est.</p>
-
-				<p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-
-					Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-			</div>
-
-
 
 	</div>
 
@@ -673,18 +679,10 @@
 
 <div id="tabs-east" class="ui-layout-east no-padding no-scrollbar">
 
-	<div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 1px;">
-
-		TABS HEADER
-
-	</div>
-
 	<div id="east-toolbar" class="ui-state-highlight ui-widget-content no-scrollbar add-padding"
 
 	style="position: relative; margin: 0 0px;">
 	
-	<br/>
-	<br/>
 	</div>
 
 
