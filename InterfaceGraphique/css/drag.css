@@ -1,0 +1,17 @@
+	.drop-zone {width 800px; height:600px; overflow: auto;}
+    .drag-zone {float: left;}
+	/* neutralize pane formatting BEFORE loading UI Theme */
+
+	.ui-layout-pane ,
+
+	.ui-layout-content {
+
+		background:	none;
+
+		border:		0;
+
+		padding:	0;
+
+		overflow:	visible;
+
+	}
