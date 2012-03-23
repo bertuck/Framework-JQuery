@@ -65,8 +65,8 @@
             $(test.helper).remove();
             for(categori in MyElements){
                 if (MyElements[categori][idElement]){
-                	$(".drop-zone ul").append("<li OnClick=\"javascript:gui_addGridDataElements('#elem-"+NbElements+"')\" class=\"list-elems\"style=\"list-style-type: none;\">"+MyElements[categori][idElement]['src']+"</li>"); 
-            		$("#tmp").attr("class", "elems");
+                	$(".drop-zone ul").append("<li OnClick=\"javascript:gui_addGridDataElements('#elem-"+NbElements+"')\" class=\"list-elems\"style=\"list-style-type: none;\"><div class=\"elems\">"+MyElements[categori][idElement]['src']+"</div></li>"); 
+            		//$("#tmp").attr("class", "elems");
             		$("#tmp").attr("id", "elem-"+NbElements);
             		
             		NbElements++;
