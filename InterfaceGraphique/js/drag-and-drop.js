@@ -2,16 +2,7 @@
         ;(function(b){var a=b.layout;if(!a.callbacks)a.callbacks={};a.callbacks.resizeTabLayout=function(a,c){(c.jquery?c:b(c.panel)).filter(":visible").find(".ui-layout-container:visible").andSelf().each(function(){var a=b(this).data("layout");a&&a.resizeAll()})}})(jQuery);
 
         //DragAndDrop
-        var MyElements = {
-            "categori1":{
-                "gui_img":{"src":"<img src=\"img/icon/image_icon.png\" />", "nom":"<img src=\"img/icon/image_icon.png\" />"},
-                "gui_input":{"src":"<button type=\"button\">Bouton</button>", "nom":"<img src=\"img/icon/button_icon.png\" />"}
-            },
-            "categori2":{
-                "gui_lien":{"src":"<a href=\"#\" >Lien</a>", "nom":"<img src=\"img/icon/text_link_icon.png\" />"},
-                "gui_titre":{"src":"<h1>Titre</h1>", "nom":"<img src=\"img/icon/heading_icon.png\" />"}
-            }
-        };
+        
 		$(function(){
                       $(".drop-zone").droppable({
                                                          drop: function(event, ui) {
@@ -73,8 +64,12 @@
             idElement = $(test.helper).attr("id");
             $(test.helper).remove();
             for(categori in MyElements){
-                if (MyElements[categori][idElement])
-                $(".drop-zone ul").append("<li class=\"hoverable\"style=\"list-style-type: none;\">"+MyElements[categori][idElement]['src']+"</li>"); 
+                if (MyElements[categori][idElement]){
+                	$(".drop-zone ul").append("<li class=\"hoverable\"style=\"list-style-type: none;\">"+MyElements[categori][idElement]['src']+"</li>"); 
+            		$("#tmp").attr("id", "elem-"+NbElements);
+            		$("#elem-"+NbElements).click(gui_addGridDataElements("#elem-"+NbElements));
+            		NbElements++;
+            	}
             }   
         }
        
