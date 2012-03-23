@@ -65,9 +65,8 @@
             $(test.helper).remove();
             for(categori in MyElements){
                 if (MyElements[categori][idElement]){
-                	$(".drop-zone ul").append("<li class=\"hoverable\"style=\"list-style-type: none;\">"+MyElements[categori][idElement]['src']+"</li>"); 
+                	$(".drop-zone ul").append("<li OnClick=\"javascript:gui_addGridDataElements('#elem-"+NbElements+"')\" class=\"hoverable\"style=\"list-style-type: none;\">"+MyElements[categori][idElement]['src']+"</li>"); 
             		$("#tmp").attr("id", "elem-"+NbElements);
-            		$("#elem-"+NbElements).click(gui_addGridDataElements("#elem-"+NbElements));
             		NbElements++;
             	}
             }   
