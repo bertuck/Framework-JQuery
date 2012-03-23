@@ -15,7 +15,7 @@
             for(categori in elements){
                 $("#accordion-west").append('<h3><a href="#">'+categori+'</a></h3><div id='+categori+' role="tabpanel"></div>');  
                 for(elem in elements[categori]) {
-                    $("#"+categori).append("<div class='drag' id=\""+elem+"\"><span>"+elements[categori][elem]['nom']+"</span></div><br />");
+                    $("#"+categori).append("<div class='drag' id=\""+elem+"\">"+elements[categori][elem]['nom']+"</div>");
                 }
                 
             }
