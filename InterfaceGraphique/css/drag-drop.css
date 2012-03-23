@@ -1,5 +1,5 @@
 #sortable { list-style-type: none; margin: 0; padding: 0;}
 
-.drag:hover {border:3px dotted black;list-style-type: none; }
+.drag:hover {border:2px dotted grey;list-style-type: none; }
 
-.hoverable:hover {border:5px dotted black;list-style-type: none; }
+.elems:hover {border:3px dotted black;list-style-type: none; }
