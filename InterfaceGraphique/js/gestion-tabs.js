@@ -26,8 +26,7 @@ $(function(){
 		var tabinfos= new Array(5);
 		tabinfos[0]= {name:"Name", value:Project.name};
 		tabinfos[1]= {name:"Version", value:Project.version};
-		for (x = 0; tabinfos[x]; x++)
-		jQuery('#rowed3').jqGrid('addRowData', x, tabinfos[x]);
+		CreateProject(tabinfos);
 	}
 	function gui_createProject(){ 
 		Project = {

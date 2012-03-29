@@ -1,201 +1,191 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Accordions and Tabs</title>
+    <link rel="stylesheet" type="text/css" href="css/layout-default-latest.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/ui.multiselect.css" />
+    <link type='text/css' href='css/basic.css' rel='stylesheet' media='screen' />
+    <link type='text/css' href='css/drag.css' rel='stylesheet' media='screen' />
+    <link rel="stylesheet" type="text/css" href="css/jquery.ui.all.css" />
+    <link rel="stylesheet" href="css/jquery.treeview.css" />
+    <link rel="stylesheet" href="css/dialog.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/drag-drop.css" />
+    <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css" media="screen"
+        title="no title" charset="utf-8" />
+    <link rel="stylesheet" href="css/template.css" type="text/css" media="screen" title="no title"
+        charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-latest.js"></script>
+    <script type="text/javascript" src="js/jquery.layout-latest.js"></script>
+    <script type="text/javascript" src="js/jquery.layout.resizePaneAccordions.min-1.0.js"></script>
+    <script type="text/javascript" src="js/themeswitchertool.js"></script>
+    <script type="text/javascript" src="js/debug.js"></script>
+    <script src="js/grid.locale-en.js" type="text/javascript"></script>
+    <script type="text/javascript">
 
-<head> 
+        $.jgrid.no_legacy_api = true;
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-	<title>Accordions and Tabs</title> 
-	<link rel="stylesheet" type="text/css" href="css/layout-default-latest.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="css/ui.multiselect.css" />
-	<link type='text/css' href='css/basic.css' rel='stylesheet' media='screen' />
-	<link type='text/css' href='css/drag.css' rel='stylesheet' media='screen' />
-	<link rel="stylesheet" type="text/css" href="css/jquery.ui.all.css" />
-	<link rel="stylesheet" href="css/jquery.treeview.css" />
-	<link rel="stylesheet" href="css/dialog.css" />
-	<link rel="stylesheet" href="css/menu.css" />
-	<link rel="stylesheet" href="css/drag-drop.css" />
-	
-	<script type="text/javascript" src="js/jquery-latest.js"></script> 
+        $.jgrid.useJSON = true;
 
-	<script type="text/javascript" src="js/jquery-ui-latest.js"></script> 
-
-	<script type="text/javascript" src="js/jquery.layout-latest.js"></script>
-
-	<script type="text/javascript" src="js/jquery.layout.resizePaneAccordions.min-1.0.js"></script>
-
-    <script type="text/javascript" src="js/themeswitchertool.js"></script> 
-
-	<script type="text/javascript" src="js/debug.js"></script>
-
-	<script src="js/grid.locale-en.js" type="text/javascript"></script>
-
-	<script type="text/javascript">
-
-		$.jgrid.no_legacy_api = true;
-
-		$.jgrid.useJSON = true;
-
-	</script>
-	
-	<script type='text/javascript' src='js/jquery.listAttributes.js'></script>
-
-	<script type='text/javascript' src='js/Elements.js'></script>
-	
-	<script src="js/ui.multiselect.js" type="text/javascript"></script>
-
-	<script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery.tablednd.js" type="text/javascript"></script>
-
-	<script src="js/jquery.contextmenu.js" type="text/javascript"></script>
-	
-	<script src="js/jquery.treeview.js" type="text/javascript"></script>
-	
-	<script type='text/javascript' src='js/jquery.simplemodal.js'></script>
-	
-	<script type='text/javascript' src='js/basic.js'></script>
-	
-	<script type='text/javascript' src='js/gestion-tabs.js'></script>
-	
-	<script type='text/javascript' src='js/init-interface.js'></script>
-
-	<script type='text/javascript' src='js/drag-and-drop.js'></script>
-	
-	<script type='text/javascript' src='js/gestion-elements.js'></script>
-	
-	
-</head> 
-
-
-
-
-<body> 
-
-<div class="ui-layout-north ui-widget-content add-padding">
-<div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
-	<div class="fg-buttonset ui-helper-clearfix">
-	<div id='content'>
-		<div id='basic-modal'>
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic" title="Open"><span class="ui-icon ui-icon-circle-plus"></span> New Project</a>
-		</div>
-		<div id="basic-modal-content">
-			<h3>Create tour project</h3>
-			<p>Put the name, the version and choose a skin of the project.</p>
-			<p>Name project:</p><input type="text" id="ProjectName" name="Name Project" />
-			<p>version:</p><input type="text" id="ProjectVersion" name="Version Project" /> 
-			<div class="fg-buttonset fg-buttonset-single">
-				<button class="fg-button ui-state-default ui-priority-primary ui-corner-left">Visual</button>
-				<button class="fg-button ui-state-default ui-priority-primary">Code</button>
-				<button class="fg-button ui-state-default ui-priority-primary">Split</button>
-				<button class="fg-button ui-state-default ui-priority-primary ui-corner-right">Preview</button>
-			</div>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			<button id="add_tab" class="fg-button ui-state-default ui-corner-all no simplemodal-close"  type="button">Create</button>
-		</div>
-		</div>
-
-		<!-- preload the images -->
-		<div style='display:none'>
-			<img src='img/basic/x.png' alt='' />
-		</div>
-		
-	</div>
-		<div style="margin: 0 100px;">
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Save"><span class="ui-icon ui-icon-disk"></span> Save</a>
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Commit"><span class="ui-icon ui-icon-check"></span> Commit</a>
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Delete"><span class="ui-icon ui-icon-trash"></span> Delete</a>
-		</div>
-	<div class="fg-buttonset ui-helper-clearfix" style="margin: 0 50px;">
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Download"><span class="ui-icon ui-icon-arrowthickstop-1-s"></span> Download</a>
-		<a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Email"><span class="ui-icon ui-icon-mail-closed"></span> Email</a>
-	</div>
-	<div class="nextprev" style="margin: 0 0px;">
-	<a href="#" class="fg-button ui-state-default fg-button-icon-left ui-corner-all"><span class="ui-icon ui-icon-circle-minus"></span>Previous</a>
-	<a href="#" class="fg-button ui-state-default fg-button-icon-right ui-corner-all"><span class="ui-icon ui-icon-circle-plus"></span>Next</a>
-	</div>
-	<div class="fg-buttonset fg-buttonset-single ui-helper-clearfix" style="margin: 0 10px;">
-		<button class="fg-button ui-state-default ui-state-active ui-priority-primary ui-corner-left">Edit</button>
-		<button class="fg-button ui-state-default ui-priority-primary ui-corner-right">View</button>
-	</div>
-	
-	
-</div>
-
-	
-
-</div> 
-
-<div class="ui-layout-south ui-widget-content add-padding">South</div> 
-
-
-
-
-
-<div class="ui-layout-west no-scrollbar add-padding grey">
-
-	<div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 0px;">
-
-		</br><b>Explorer</b><br/>
-		
-		</div >
-		<div class="ui-widget-header add-padding" style="margin: 0 10px;">
-				<ul id="browser" class="filetree treeview-famfamfam">
-				</ul>
-			</br>
-		</div>
-		
-	<div id="accordion-west">
-
-	</div>
-
-</div>
-
-
-
-
-
-<div class="ui-layout-center no-scrollbar add-padding grey">
-
-	<!-- center Tabs layout -->
-
-
-	<div id="tabs">
-		<ul>
-		</ul>
-	</div>
-	<!-- /center Tabs layout -->
-
-</div>
-
-
-
-<div id="tabs-east" class="ui-layout-east no-padding no-scrollbar">
-
-	<div id="east-toolbar" class="ui-state-highlight ui-widget-content no-scrollbar add-padding"
-
-	style="position: relative; margin: 0 0px;">
-	
-	</div>
-
-
-	<div class="ui-layout-content ui-widget-content no-scrollbar" style="border-top: 0;">
-		<div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 px;">
-			<table id="rowed3"></table>
-			<div id="prowed3"></div>
-			<br />
-		</div>
-	<script type='text/javascript' src='js/grid.js'></script>
-	</div>
-
-</div>
-
-</body> 
-
+    </script>
+    <script type='text/javascript' src='js/jquery.listAttributes.js'></script>
+    <script type='text/javascript' src='js/Elements.js'></script>
+    <script src="js/ui.multiselect.js" type="text/javascript"></script>
+    <script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script src="js/jquery.tablednd.js" type="text/javascript"></script>
+    <script src="js/jquery.contextmenu.js" type="text/javascript"></script>
+    <script src="js/jquery.treeview.js" type="text/javascript"></script>
+    <script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+    <script type='text/javascript' src='js/basic.js'></script>
+    <script type='text/javascript' src='js/gestion-tabs.js'></script>
+    <script type='text/javascript' src='js/init-interface.js'></script>
+    <script type='text/javascript' src='js/drag-and-drop.js'></script>
+    <script type='text/javascript' src='js/gestion-elements.js'></script>
+    <script src="js/jquery.validationEngine-fr.js" type="text/javascript"></script>
+    <script src="js/jquery.validationEngine.js" type="text/javascript"></script>
+    <script src="js/Formulaire.js" type="text/javascript"></script>
+    <script src="js/MessageBox.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="ui-layout-north ui-widget-content add-padding">
+        <div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
+            <div class="fg-buttonset ui-helper-clearfix">
+                <div id='content'>
+                    <div id='basic-modal'>
+                        <a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic"
+                            title="Open"><span class="ui-icon ui-icon-circle-plus"></span>New Project</a>
+                    </div>
+                    <div id="basic-modal-content">
+                        <h3>
+                            Create tour project</h3>
+                        <p>
+                            Put the name, the version and choose a skin of the project.</p>
+                        <p>
+                            Name project:</p>
+							
+								<div style="margin-top: 20px; margin-right: 230px; float: right;">
+							<p>Theme :</p>
+						</div>
+                        <input type="text" id="ProjectName" name="Name Project" />
+                        <p>
+                            Version:</p>
+						
+							
+						
+                        <input type="text" id="ProjectVersion" name="Version Project" />
+						
+						<p>Interface :</p>
+                        <div class="fg-buttonset fg-buttonset-single" style="margin: 0 20px;">
+                            <button class="fg-button ui-state-default ui-priority-primary ui-corner-left">
+                                Simple</button>
+                            <button class="fg-button ui-state-default ui-priority-primary">
+                                Advanced</button>
+                            <button class="fg-button ui-state-default ui-priority-primary ui-corner-right">
+                                Expert</button>
+                        </div>
+                        </br>
+						<div style="margin-left : 90%">
+                        <a href="#" style="height: 30px;"id ="add_tab" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all no simplemodal-close"
+                        title="Create"><span class="ui-icon ui-icon-circle-check"></span>Create</a> 
+						</div>
+                    </div>
+                </div>
+                <!-- preload the images -->
+                <div style='display: none'>
+                    <img src='img/basic/x.png' alt='' />
+                </div>
+            </div>
+            <div style="margin: 0 100px;">
+                <a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all"
+                    title="Save"><span class="ui-icon ui-icon-disk"></span>Save</a> <a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all"
+                        title="Commit"><span class="ui-icon ui-icon-check"></span>Commit</a> <a href="#"
+                            class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all" title="Delete">
+                            <span class="ui-icon ui-icon-trash"></span>Delete</a>
+            </div>
+            <div class="fg-buttonset ui-helper-clearfix" style="margin: 0 50px;">
+                <a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all"
+                    title="Download"><span class="ui-icon ui-icon-arrowthickstop-1-s"></span>Download</a>
+                <a href="#" class="fg-button ui-state-default fg-button-icon-solo  ui-corner-all"
+                    title="Email"><span class="ui-icon ui-icon-mail-closed"></span>Email</a>
+            </div>
+            <div class="nextprev" style="margin: 0 0px;">
+                <a href="#" class="fg-button ui-state-default fg-button-icon-left ui-corner-all"><span
+                    class="ui-icon ui-icon-circle-minus"></span>Previous</a> <a href="#" class="fg-button ui-state-default fg-button-icon-right ui-corner-all">
+                        <span class="ui-icon ui-icon-circle-plus"></span>Next</a>
+            </div>
+            <div class="fg-buttonset fg-buttonset-single ui-helper-clearfix" style="margin: 0 10px;">
+                <button class="fg-button ui-state-default ui-state-active ui-priority-primary ui-corner-left">
+                    Edit</button>
+                <button class="fg-button ui-state-default ui-priority-primary ui-corner-right">
+                    View</button>
+            </div>
+        </div>
+    </div>
+    <div class="ui-layout-south ui-widget-content add-padding">
+        South</div>
+    <div class="ui-layout-west no-scrollbar add-padding grey">
+        <div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 0px;">
+            </br><b>Explorer</b><br />
+        </div>
+        <div class="ui-widget-header add-padding" style="margin: 0 10px;">
+            <ul id="browser" class="filetree treeview-famfamfam">
+            </ul>
+            </br>
+        </div>
+        <div id="accordion-west">
+        </div>
+    </div>
+    <div class="ui-layout-center no-scrollbar add-padding grey">
+        <!-- center Tabs layout -->
+        <div id="tabs">
+            <ul>
+            </ul>
+        </div>
+        <!-- /center Tabs layout -->
+    </div>
+    <div id="tabs-east" class="ui-layout-east no-padding no-scrollbar">
+        <div id="east-toolbar" class="ui-state-highlight ui-widget-content no-scrollbar add-padding"
+            style="position: relative; margin: 0 0px;">
+        </div>
+        <div class="ui-layout-content ui-widget-content no-scrollbar" style="border-top: 0;">
+            <div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 px;">
+                <form id="formID" class="formular" method="post" action="">
+                <legend id="TitleProperties">Properties</legend>
+                <fieldset id="Name">
+                    <legend>Name</legend>
+                </fieldset>
+                <fieldset id="Value">
+                    <legend>Value</legend>
+                </fieldset>
+                <div id="ButtonForm">
+                    <div id="dialog-form" title="Add a Attribute">
+                        <p class="validateTips">
+                            All form fields are required.</p>
+                        <form>
+                        <fieldset>
+                            <label for="name">
+                                Name  :</label>
+                            <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+							</br>
+                            <label for="value">
+                                Value :</label>
+                            <input type="text" name="value" id="value" class="text ui-widget-content ui-corner-all" />
+                        </fieldset>
+                        </form>
+                    </div>
+                    <a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic"
+                        title="Validate"><span class="ui-icon ui-icon-check" onclick="gui_saveForm();"></span>
+                        Validate</a> 
+                        <a href="#" id="create-user" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic"
+                            title="Add Attribute"><span class="ui-icon ui-icon-circle-plus"></span>Add Attribute</a>
+                </div>
+                <hr />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

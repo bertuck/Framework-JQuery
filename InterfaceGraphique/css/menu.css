@@ -15,7 +15,7 @@
 	
 	.fg-buttonset { float:left; }
 	.fg-buttonset .fg-button { float: left; }
-	.fg-buttonset-single { float: right; }
+	.fg-buttonset-single { float: left; }
 	.fg-buttonset-single .fg-button, 
 	.fg-buttonset-multi .fg-button { margin-right: 0px;}
 	

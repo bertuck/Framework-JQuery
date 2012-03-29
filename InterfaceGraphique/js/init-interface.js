@@ -30,7 +30,7 @@
 
 		// THEME SWITCHER
 
-		addThemeSwitcher('#basic-modal-content',{ top: '150px', right: '170px' });
+		addThemeSwitcher('#basic-modal-content',{ top: '185px', right: '90px' });
 
 		// if a new theme is applied, it could change the height of some content,
 

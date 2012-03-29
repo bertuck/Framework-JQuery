@@ -1,4 +1,4 @@
-function gui_addGridDataElements(nomElement) {
+function gui_getDataElements(nomElement) {
 		var tabinfos= new Array(20);
 		var tabattributes = new Array(20);
 		tabinfos = $(nomElement).listAttributes();
@@ -8,7 +8,5 @@ function gui_addGridDataElements(nomElement) {
         tabattributes[i] = {"name":attributename, "value":$(nomElement).attr(attributename)}; 
         i++;
         }
-        jQuery('#rowed3').jqGrid('clearGridData');
-		for (x = 0; tabattributes[x]; x++)
-		jQuery('#rowed3').jqGrid('addRowData', x, tabattributes[x]);
+     return tabattributes;
 	}

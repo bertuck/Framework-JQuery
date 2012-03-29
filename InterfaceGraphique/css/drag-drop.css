@@ -1,9 +1,9 @@
-#sortable { list-style-type: none; margin: 0; padding: 0;}
+.sortable { list-style-type: none; margin: 0; padding: 0;}
 
 .drag:hover {border:2px dotted grey;list-style-type: none;margin:0;padding:0 }
 
-.drag {float:left;text-align:center;margin:2px; padding:2px;}
+.drag {float:left;text-align:center;}
 
-li:hover {border:3px dotted black;list-style-type: none; }
+.sortable li:hover {border:3px dotted black;list-style-type: none; }
 
-li {float:left;}
+.sortable li {float:left;}
