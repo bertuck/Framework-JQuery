@@ -1,3 +1,6 @@
+// TOOLBARS
+
+
 //Elements draggables
 var NbElements = 1;
 
@@ -21,3 +24,6 @@ var MyElements = {
             			}
         		};
         
+
+
+
