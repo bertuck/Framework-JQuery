@@ -11,6 +11,7 @@ elem.click(function(e){
 						$(".widget-selected").removeClass("widget-selected");
 						$(this).addClass("widget-selected");
 						gui_RefreshForm();
+						e.stopPropagation();
 						}
 			);
 elem.droppable({										greedy: true,
