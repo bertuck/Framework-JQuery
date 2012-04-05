@@ -1,0 +1,19 @@
+.widget-div {
+border:3px dotted black;
+background-color:red;
+width:50%;
+height:50%;
+float:left;
+}
+
+.icon_categorie {
+width:100px;
+height:100px;
+}
+
+.widget-selected {
+border:5px solid black;
+width:50%;
+height:50%;
+float:left;
+}
