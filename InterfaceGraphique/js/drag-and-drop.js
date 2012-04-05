@@ -5,39 +5,45 @@
         
 		$(function(){
                       $(".drop-zone").droppable({
-                                                         drop: function(event, ui) {
+                                                    drop: function(event, ui) {
                                                          addToPage(ui);
                                                          }
                                                          });
                                                          });
+                                                         
         
         function remplisElements(elements){
             for(categori in elements){
                 $("#accordion-west").append('<h3><a href="#">'+categori+'</a></h3><div id='+categori+' role="tabpanel"></div>');  
                 for(elem in elements[categori]) {
-                    $("#"+categori).append("<div class='drag' id=\""+elem+"\">"+elements[categori][elem]['nom']+"</div>");
+                    $("#"+categori).append("<img class='drag icon_categorie' name=\""+elem+"\" src=\"img/icon/"+elements[categori][elem].src+"\"></img>");
                 }
                 
             }
             $("#accordion-west").accordion({ collapsible: true });
             $(".drag").draggable({
-                                 helper:	function () {return $(this).clone().appendTo('body').show(); },
+                                 helper:	function () {return $(this).clone().appendTo('body').show(); }
                                  });
-
+            //$( "#tabs").tabs( "add", "#tabs-" + 1,  "Projet 1");
+			
         }
         
-                
-		$(function() {
-		$( ".sortable" ).sortable({
+        function addToPage(widget, destination) {
+           	switch (widget.name) 
+           	{
+           		case "div" : 
+           			addWidgetDiv(destination);
+           			break;
+           	}
+        }   
+        
+        function DoSortable(elem) {
+		$( "#"+elem ).sortable({
 		connectWith:	$(".sortable")
-		,	start: function(e, ui){
-        ui.placeholder.height(ui.item.height());
-        ui.placeholder.width(ui.item.width());
-        ui.placeholder.css("border:5px dotted black;list-style-type: none; ");
-    	}
+		,	placeholder:	'ombre'
 		,	cursor:			'move'
 		//	use a helper-clone that is append to 'body' so is not 'contained' by a pane
-		,	helper:			function (evt, ui) { return $(ui).clone().appendTo('body').show(); }
+		,	helper:			function (evt, ui) {return $(ui).clone().appendTo('body').show(); }
 		,	over:			function (evt, ui) {
 								var
 									$target_UL	= $(ui.placeholder).parent()
@@ -48,7 +54,7 @@
 												+ parseInt( ui.helper.css('borderLeftWidth') )
 												+ parseInt( ui.helper.css('borderRightWidth') )
 								;
-								//if (( (helperWidth + padding) - targetWidth ) > 20)
+								if (( (helperWidth + padding) - targetWidth ) > 20)
 									ui.helper
 										.height('auto')
 										.width( targetWidth - padding )
@@ -56,22 +62,15 @@
 							}
 		});
 		
+		}
+		
+		
+		/*function DoDropable(elem) {
+		 $(".drop-zone").droppable({
+		 		drop: function(event, ui) {
+		 		alert($(this));
+				addToPage(ui.draggable[0], $(this));
+				}
 		});
-        
-        
-        
-        function addToPage(test) {
-            idElement = $(test.helper).attr("id");
-            $(test.helper).remove();
-            for(categori in MyElements){
-                if (MyElements[categori][idElement]){
-                	$(".drop-zone ul").append("<li OnClick=\"javascript:gui_RefreshForm('#elem-"+NbElements+"')\" class=\"list-elems\"style=\"list-style-type: none;\"><div class=\"elems\">"+MyElements[categori][idElement]['src']+"</div></li>"); 
-            		//$("#tmp").attr("class", "elems");
-            		$("#tmp").attr("id", "elem-"+NbElements);
-            		
-            		NbElements++;
-            	}
-            }   
-        }
-       
+       }*/
         

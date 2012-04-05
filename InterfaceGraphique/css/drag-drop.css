@@ -1,9 +1,10 @@
 .sortable { list-style-type: none; margin: 0; padding: 0;}
 
-.drag:hover {border:2px dotted grey;list-style-type: none;margin:0;padding:0 }
+.drag:hover {border: 2px dotted grey;list-style-type: none;margin:2px; }
 
-.drag {float:left;text-align:center;}
+.drag {border:2px none grey; float:left;text-align:center;margin:4px}
 
-.sortable li:hover {border:3px dotted black;list-style-type: none; }
+.sortable li:hover {border:3px dotted black;list-style-type: none;margin:2px;}
 
-.sortable li {float:left;}
+.sortable li {border:3px none black; float:left;margin:5px;padding:5px}
+

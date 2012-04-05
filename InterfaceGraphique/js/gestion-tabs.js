@@ -46,7 +46,7 @@ $(function() {
 		var $tabs = $( "#tabs").tabs({
 			tabTemplate: "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
 			add: function( event, ui ) {
-				var tab_content = "<div class=\"drop-zone\" style=\"width 800px; height:600px; overflow: auto;background: grey;\"> <ul class=\"sortable\" style=\"list-style-type: none;\"></ul></div>";
+				var tab_content = "<div class=\"drop-zone\" style=\"width 800px; height:600px; overflow: auto;background: grey;\"></div>";
 				$( ui.panel ).append( "<p>" + tab_content + "</p>" );
 			}
 		});
@@ -100,14 +100,16 @@ $(function() {
 			.click(function() {
 				addTab();
 				$(function(){
-                      $(".drop-zone").droppable({
+                      $(".drop-zone").droppable({		greedy: true,
+                      									activeClass:"ui-state-hover",
+                      									hoverClass:"ui-state-active",
                                                          drop: function(event, ui) {
-                                                         addToPage(ui);
+                                                         addToPage(ui.draggable[0], $(this)[0]);
                                                          }
                                                          });
                                                          });
         
-        function remplisElements(elements){
+        /*function remplisElements(elements){
             for(categori in elements){
                 $("#accordion-west").append('<h3><a href="#">'+categori+'</a></h3><div id='+categori+' role="tabpanel"></div>');  
                 for(elem in elements[categori]) {
@@ -120,35 +122,10 @@ $(function() {
                                  helper:	function () {return $(this).clone().appendTo('body').show(); },
                                  });
 
-        }
+        }*/
         
                 
-		$(function() {
-		$( ".sortable" ).sortable({
-		connectWith:	$(".sortable")
-		,	placeholder:	'ombre'
-		,	cursor:			'move'
-		//	use a helper-clone that is append to 'body' so is not 'contained' by a pane
-		,	helper:			function (evt, ui) { return $(ui).clone().appendTo('body').show(); }
-		,	over:			function (evt, ui) {
-								var
-									$target_UL	= $(ui.placeholder).parent()
-								,	targetWidth	= $target_UL.width()
-								,	helperWidth	= ui.helper.width()
-								,	padding		= parseInt( ui.helper.css('paddingLeft') )
-												+ parseInt( ui.helper.css('paddingRight') )
-												+ parseInt( ui.helper.css('borderLeftWidth') )
-												+ parseInt( ui.helper.css('borderRightWidth') )
-								;
-								//if (( (helperWidth + padding) - targetWidth ) > 20)
-									ui.helper
-										.height('auto')
-										.width( targetWidth - padding )
-									;
-							}
-		});
-		
-		});
+		DoSortable("main-sortable-1");
 			});
 
 		// close icon: removing the tab on click
@@ -158,3 +135,5 @@ $(function() {
 			$tabs.tabs( "remove", index );
 		});
 	});
+	
+	

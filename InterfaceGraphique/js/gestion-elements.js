@@ -1,12 +1,18 @@
-function gui_getDataElements(nomElement) {
-		var tabinfos= new Array(20);
+function gui_getDataElements(elem) {
+		
+		//var tabinfos= new Array(20);
 		var tabattributes = new Array(20);
-		tabinfos = $(nomElement).listAttributes();
-        var i = 0;
-        for (attributes in tabinfos) {
-        var attributename = tabinfos[attributes];
-        tabattributes[i] = {"name":attributename, "value":$(nomElement).attr(attributename)}; 
-        i++;
+		
+		var tabinfos = [
+			{"name":"width", "value":"30%"},
+			{"name":"height", "value":"30%"},
+			{"name":"float", "value":"left"},
+			{"backgroud-color":"", "value":"red"},
+			{"name":"border", "value":"1px dotted black"}
+			];
+        for (var i = 0; i < tabinfos[i] != null; i++) {
+        elemAttr = tabinfos[i];
+        tabattributes[i] = {"name":elemAttr.name, "value":$(elem).attr(elemAttr.name)}; 
         }
      return tabattributes;
 	}

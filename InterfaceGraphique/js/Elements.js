@@ -1,11 +1,4 @@
-// TOOLBARS
-
-
-//Elements draggables
-var NbElements = 1;
-
-
-var MyElements = {
+/*var MyElements = {
             	"categori1":{
                 		"gui_img":{
                 					"src":"<img id=\"tmp\" src=\"img/icon/image_icon.png\" />", 
@@ -22,8 +15,20 @@ var MyElements = {
                 					"src":"<h1 id=\"tmp\">Titre</h1>", 
                 					"nom":"<img src=\"img/icon/heading_icon.png\" />"}
             			}
-        		};
+        		};*/
         
-
+var MyElements = {
+	"Conteneur":{"div":{"display":"Div", "src":"div_icon.png"},
+				 "toolbar":{"display":"Toolbar", "src":"nav_bar_icon.png"},
+				 "tabs":{"display":"Tabs", "src":"div_icon.png"},
+				 "accordion":{"display":"Accordion", "src":"div_icon.png"},
+				 "dialog":{"display":"Dialog", "src":"div_icon.png"}
+				 },
+	"Action":{"div":{"display":"Div", "src":"div_icon.png"},
+			  "div":{"display":"Div", "src":"div_icon.png"}
+			},
+	"Mis en forme de donnees":{},
+	"Template":{}
+}
 
 

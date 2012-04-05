@@ -48,7 +48,6 @@ form.formular {
 	border: 1px solid #B5B8C8;
 	font-size: 14px;
 	margin-top: 0px;
-	background: #FFF url('/img/form/text-bg.gif') repeat-x;
 	
 }
 .formular textarea {
@@ -59,8 +58,11 @@ form.formular {
 	border: 1px solid #B5B8C8;
 	font-size: 14px;
 	margin-top: 4px;
-	background: #FFF url('/img/form/text-bg.gif') repeat-x;
 	
+}
+.formular .floatform {
+width:45%;
+float:left;
 }
 .formular .infos {
 	background: #FFF;
@@ -75,7 +77,6 @@ form.formular {
 }
 
 .formular .submit {
-	background: url('/img/form/button-bg.png') repeat-x;
 	border: 1px solid #AAA;
 	padding: 4px;
 	margin-top: 0px;
