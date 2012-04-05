@@ -12,14 +12,14 @@ $(".floatform label").remove();
 $("#TitleProperties").html("<b>Properties : "+ name + "</b></br></br>");
 	for(type in FormDiv) {
 		for (x = 0; FormDiv[type][x]; x++) {
-			formName = '<label><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" value="'+FormDiv[type][x]+'" type="text" name="text" id="Text"'+x+' readonly/></label>';
+			formName = '<label><input  class="text ui-widget-content ui-corner-all" value="'+FormDiv[type][x]+'"  style="width: 98%;" type="text" name="text" id="Text'+x+' readonly" /></label>';
 			$("#Name-"+type).append(formName);	
 				if (type == "css") {
-					formValue = '<label><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" value="'+elem.css(FormDiv[type][x])+'" type="text" name="text" id="Text'+x+'" /></label>';
+					formValue = '<label><input  class="text ui-widget-content ui-corner-all" value="'+elem.css(FormDiv[type][x])+'" style="width: 98%;" type="text" name="text" id="Text'+x+'" /></label>';
 					$("#Value-"+type).append(formValue);
 				}
 				else if (type == "attr") { 
-					formValue = '<label><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" value="'+elem.attr(FormDiv[type][x])+'" type="text" name="text" id="Text'+x+'" /></label>';
+					formValue = '<label><input  class="text ui-widget-content ui-corner-all" value="'+elem.attr(FormDiv[type][x])+'" style="width: 98%;" type="text" name="text" id="Text'+x+'" /></label>';
 					$("#Value-"+type).append(formValue);
 				}
 		} 

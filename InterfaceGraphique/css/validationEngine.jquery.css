@@ -1,8 +1,16 @@
-	#Name {
+	#Name-css {
 		float: left;
-		width: 43%;
+		width: 42%;
 	}
-	#Value {
+	#Value-css {
+	float: right;
+	}
+	#Name-attr {
+		float: left;
+		width: 42%;
+	}
+	#Value-attr {
+		float: right;
 	}
 	#TitleProperties {
 		position: right;
