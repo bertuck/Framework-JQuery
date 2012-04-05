@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css" media="screen" title="no title" charset="utf-8" />
     <link rel="stylesheet" href="css/template.css" type="text/css" media="screen" title="no title" charset="utf-8" />
     <link rel="stylesheet" href="css/appli.css" />
+ 
+
     <script type="text/javascript" src="js/jquery-latest.js"></script>
     <script type="text/javascript" src="js/jquery-ui-latest.js"></script>
     <script type="text/javascript" src="js/jquery.layout-latest.js"></script>
@@ -48,7 +50,9 @@
     <script src="js/Formulaire.js" type="text/javascript"></script>
     <script src="js/MessageBox.js" type="text/javascript"></script>
     <script src="js/manage-widget.js"></script>
+
 </head>
+
 <body>
     <div class="ui-layout-north ui-widget-content add-padding">
         <div class="fg-toolbar ui-widget-header ui-corner-all ui-helper-clearfix">
@@ -72,7 +76,6 @@
                         <input type="text" id="ProjectName" name="Name Project" />
                         <p>
                             Version:</p>
-						
 							
 						
                         <input type="text" id="ProjectVersion" name="Version Project" />
@@ -129,6 +132,7 @@
     <div class="ui-layout-west no-scrollbar add-padding grey">
         <div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 0px;">
             </br><b>Explorer</b><br />
+            				 
         </div>
         <div class="ui-widget-header add-padding" style="margin: 0 10px;">
             <ul id="browser" class="filetree treeview-famfamfam">
@@ -137,6 +141,7 @@
         </div>
         <div id="accordion-west" style="height:300px;">
         </div>
+
     </div>
     <div class="ui-layout-center no-scrollbar add-padding grey">
         <!-- center Tabs layout -->
@@ -154,7 +159,11 @@
             <div class="ui-widget-header no-scrollbar add-padding" style="margin: 0 px;">
                 <form id="formID" class="formular" method="post" action="">
                 <legend id="TitleProperties">Properties</legend>
-                <h2>Element - Style</h2>
+
+                <div id="accordion-east" style="width:auto; height:300px; ">
+                <h3><a href="#">Element - Style</a></h3>
+                <div>
+       
                 <fieldset id="Name-css" class="floatform">
                     <legend>Name</legend>
              
@@ -163,18 +172,25 @@
                     <legend>Value</legend>
                 
                 </fieldset>
-                <h2>Element - Attributes</h2>
+                </div>
+          
+                  <h3><a href="#">Element - Attributes</a></h3>
+                  <div>
                 <fieldset id="Name-attr" class="floatform">
                     <legend>Name</legend>
                 </fieldset>
                 <fieldset id="Value-attr" class="floatform">
                     <legend>Value</legend>
                 </fieldset>
+                </div>
+                </div>
+
                 <div id="ButtonForm">
                     <div id="dialog-form" title="Add a Attribute">
                         <p class="validateTips">
                             All form fields are required.</p>
                         <form>
+
                         <fieldset>
                             <label for="name">
                                 Name  :</label>
@@ -187,11 +203,14 @@
                         </fieldset>
                         </form>
                     </div>
+                    </br>
                     <a href="#" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic"
                         title="Validate"><span class="ui-icon ui-icon-check" onclick="gui_saveForm();"></span>
                         Validate</a> 
                         <a href="#" id="create-user" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic"
                             title="Add Attribute"><span class="ui-icon ui-icon-circle-plus"></span>Add Attribute</a>
+                            <a href="#" id="A1" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic"
+                            title="Delete"><span class="ui-icon ui-icon-closethick"></span>Delete</a>
                 </div>
                 <hr />
                 </form>

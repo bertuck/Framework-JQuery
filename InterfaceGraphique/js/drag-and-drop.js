@@ -21,6 +21,7 @@
                 
             }
             $("#accordion-west").accordion({ collapsible: true });
+			$("#accordion-east").accordion({ collapsible: true });
             $(".drag").draggable({
                                  helper:	function () {return $(this).clone().appendTo('body').show(); }
                                  });
