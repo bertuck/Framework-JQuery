@@ -7,7 +7,7 @@ elem.attr("name", "div");
 elem.attr("class", "drop-zone widget-div");
 $(destination).append(elem);
 
-elem.click(function(){
+elem.click(function(e){
 						$(".widget-selected").removeClass("widget-selected");
 						$(this).addClass("widget-selected");
 						gui_RefreshForm();
