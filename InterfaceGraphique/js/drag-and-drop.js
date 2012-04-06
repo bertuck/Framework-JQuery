@@ -35,6 +35,9 @@
            		case "div" : 
            			addWidgetDiv(destination);
            			break;
+				case "grid" : 
+					addWidgetGrid(destination);
+           			break;
            	}
         }   
         

@@ -14,10 +14,24 @@ $("#TitleProperties").html("<b>Properties : "+ name + "</b></br>");
 			formName = '<label><input  class="text ui-widget-content ui-corner-all" value="'+FormDiv[type][x]+'"  style="width: 98%;" type="text" name="text" id="'+FormDiv[type][x]+'" readonly /></label>';
 			$("#Name-"+type).append(formName);	
 				if (type == "css") {
-				formValue = '<label><input  class="text ui-widget-content ui-corner-all" value="'+elem.css(FormDiv[type][x])+'" style="width: 98%;" type="text" name="css-'+FormDiv[type][x]+'" id="'+FormDiv[type][x]+'-value" /></label>';
+					formValue = '<label><input  class="text ui-widget-content ui-corner-all" value="'+elem.css(FormDiv[type][x])+'" style="width: 98%;" type="text" name="css-'+FormDiv[type][x]+'" id="'+FormDiv[type][x]+'-value" /></label>';
 				$("#Value-"+type).append(formValue);
-					//if (FormDiv[type][x].match(/color/))
-						//alert("toto");
+				if (FormDiv[type][x].match(/color/))
+					$('#'+FormDiv[type][x]+'-value').ColorPicker({
+	onSubmit: function(hsb, hex, rgb, el) {
+		$(el).val("rgb("+rgb["r"]+","+rgb["g"]+","+rgb["b"]+")");
+		$(".colorpicker").css("right", "500px");
+		$(el).ColorPickerHide();
+	},
+	onBeforeShow: function () {
+		$(this).ColorPickerSetColor(this.value);
+	}
+})
+.bind('keyup', function(){
+	$(this).ColorPickerSetColor(this.value);
+});	
+				
+				
 				}
 				else if (type == "attr") { 
 					formValue = '<label><input  class="text ui-widget-content ui-corner-all" value="'+elem.attr(FormDiv[type][x])+'" style="width: 98%;" type="text" name="attr-'+FormDiv[type][x]+'" id="'+FormDiv[type][x]+'-value" /></label>';
@@ -27,8 +41,6 @@ $("#TitleProperties").html("<b>Properties : "+ name + "</b></br>");
 	}
 	
 }
-
-
 
 function CreateProject(tab) {
 $("#Name label").remove();
@@ -55,5 +67,4 @@ for (item in Object)
 		case "attr" : Widget.attr(tmp[1], Object[item]["value"]); break;
 	}
 }
-alert('attributs a sauvgarder.');
 }

@@ -19,7 +19,7 @@
         
 var MyElements = {
 	"Conteneur":{"div":{"display":"Div", "src":"div_icon.png"},
-				 "toolbar":{"display":"Toolbar", "src":"nav_bar_icon.png"},
+				 "grid":{"display":"Grid", "src":"grid_icon.png"},
 				 "tabs":{"display":"Tabs", "src":"div_icon.png"},
 				 "accordion":{"display":"Accordion", "src":"div_icon.png"},
 				 "dialog":{"display":"Dialog", "src":"div_icon.png"}
