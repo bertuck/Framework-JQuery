@@ -4,24 +4,27 @@ function addWidgetDiv(destination)
 elem.setAttribute('class', 'drop-zone widget-div');*/
 var elem = $("<div></div>");
 elem.attr("name", "div");
-elem.attr("class", "drop-zone widget-div");
+elem.attr("class", "drop-zone widget-div resizable");
 $(destination).append(elem);
 
 elem.click(function(e){
 						$(".widget-selected").removeClass("widget-selected");
-						$(this).addClass("widget-selected resizable");
+						$(this).addClass("widget-selected");
 						gui_RefreshForm();
-						$( ".resizable" ).resizable();
 						e.stopPropagation();
 						}
 			);
-elem.droppable({										greedy: true,
-														activeClass:"ui-state-hover",
-                      									hoverClass:"ui-state-active",
+				elem.droppable({						 greedy: true,
+														 activeClass:"ui-state-hover",
+                      									 hoverClass:"ui-state-active",
                                                          drop: function(event, ui) {
                                                          addToPage(ui.draggable[0], $(this)[0]);
                                                          }
                                                          });
+														 $(".resizable").resizable({
+														 helper: "ui-resizable-helper",
+			animate: true,
+		});
 }
 
 function addWidgetGrid(destination)

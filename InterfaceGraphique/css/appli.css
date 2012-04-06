@@ -1,4 +1,5 @@
 .widget-div {
+
 border:3px dotted black;
 background-color:red;
 width:50%;
@@ -17,3 +18,5 @@ width:50%;
 height:50%;
 float:left;
 }
+
+.ui-resizable-helper { border: 2px dotted #00F; }
