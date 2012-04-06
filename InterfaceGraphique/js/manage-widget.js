@@ -9,8 +9,9 @@ $(destination).append(elem);
 
 elem.click(function(e){
 						$(".widget-selected").removeClass("widget-selected");
-						$(this).addClass("widget-selected");
+						$(this).addClass("widget-selected resizable");
 						gui_RefreshForm();
+						$( ".resizable" ).resizable();
 						e.stopPropagation();
 						}
 			);
