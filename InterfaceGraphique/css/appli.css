@@ -1,11 +1,18 @@
 .widget-div {
 
-border:3px dotted black;
+border:3px dotted grey;
 background-color:red;
 width:50%;
 height:50%;
 float:left;
 }
+
+.widget-grid {
+
+border:3px dotted black;
+float:left;
+}
+
 
 .icon_categorie {
 width:100px;
@@ -13,10 +20,12 @@ height:100px;
 }
 
 .widget-selected {
+border:3px dotted black;
+
+}
+
+.form-grid {
 border:5px solid black;
-width:50%;
-height:50%;
-float:left;
 }
 
 .ui-resizable-helper { border: 2px dotted #00F; }

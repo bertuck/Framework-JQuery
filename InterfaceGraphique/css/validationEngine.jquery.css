@@ -1,20 +1,20 @@
 	#Name-css {
 		float: left;
 		width: 48%;
-		margin-left: -9px;
+		margin-left: -14%;
 	}
 	#Value-css {
 		width: 48%;
-		margin-right: -10px;
+		margin-right: -14%;
 	}
 	#Name-attr {
 		float: left;
 		width: 48%;
-		margin-left: -9px;
+		margin-left: -14%;
 	}
 	#Value-attr {
 		width: 48%;
-		margin-right: -10px;
+		margin-right: -14%;
 	}
 	#TitleProperties {
 		position: right;
