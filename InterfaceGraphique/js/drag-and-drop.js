@@ -38,6 +38,9 @@
 				case "grid" : 
 					addWidgetGrid(destination);
            			break;
+				case "form" : 
+					addWidgetForm(destination);
+           			break;
            	}
         }   
         

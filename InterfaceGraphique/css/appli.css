@@ -13,6 +13,13 @@ border:3px dotted black;
 float:left;
 }
 
+.widget-form  {
+border:3px dotted black;
+float:left;
+width:30%;
+height:38%;
+}
+
 
 .icon_categorie {
 width:100px;

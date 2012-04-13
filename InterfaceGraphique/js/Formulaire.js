@@ -21,6 +21,10 @@ switch (name)
 		tmp = RefreshGridForm(elem, FormDiv);
 		$("#FormValidate").attr("onclick", "SaveGrid();");
 		break;
+	case "form" : 
+		tmp = RefreshFormForm(elem, FormDiv);
+		$("#FormValidate").attr("onclick", "SaveForm();");
+		break;
 }
 }	
                 
@@ -81,6 +85,18 @@ $("#accordion-east").accordion("destroy");
 $("#accordion-east").accordion({ collapsible: true });
 }
 
+function RefreshFormForm(elem, FormDiv) {
+var formName = "";
+var formValue = "";
+var param = $('.widget-selected').jqGrid('getGridParam', 'colNames'); 
+var columnNames = $(".widget-selected table").jqGrid('getGridParam','colNames');
+$("#accordion-east").html('<h3><a href="#">Url Donnees</a></h3><div><input class="text ui-widget-content ui-corner-all" value="http://mgdata-khfif.appspot.com/metadata/client" style="width: 98%;" type="text" name="urlGrid" id="urlGrid" /><input  class="text ui-widget-content ui-corner-all" value="'+$(".widget-selectet .ui-jqgrid-title").val()+'" style="width: 98%;" type="text" name="NameGrid" id="NameGrid" /><a href="#" style="float:right" class="fg-button ui-state-default fg-button-icon-solo ui-corner-all basic" title="Validate"><span class="ui-icon ui-icon-check" onclick="getChampFromServer();"></span>Validate</a></div>');
+$("#accordion-east").append('<h3><a href="#">Champs</a></h3><div id="gridChamp">Entrez d\'abord l\'url du server de donnee...</div>');
+$("#accordion-east").accordion("destroy");
+$("#accordion-east").accordion({ collapsible: true });
+}
+
+
 function CreateProject(tab) {
 $("#Name label").remove();
 $("#Value label").remove();
@@ -137,6 +153,11 @@ $(".widget-selected table").jqGrid('navGrid','#pager',
 }
 
 function SaveGrid(elem) {
+champs = $("#gridChamp input:checked");
+$.getJSON( $("#urlGrid").val(), RefreshGrid(champs));
+}
+
+function SaveForm(elem) {
 champs = $("#gridChamp input:checked");
 $.getJSON( $("#urlGrid").val(), RefreshGrid(champs));
 }
