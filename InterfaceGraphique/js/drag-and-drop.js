@@ -26,7 +26,7 @@
                                  helper:	function () {return $(this).clone().appendTo('body').show(); }
                                  });
             //$( "#tabs").tabs( "add", "#tabs-" + 1,  "Projet 1");
-			
+
         }
         
         function addToPage(widget, destination) {

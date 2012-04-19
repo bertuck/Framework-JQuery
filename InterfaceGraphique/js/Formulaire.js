@@ -65,7 +65,7 @@ $("#accordion-east").html('<h3><a href="#">Element - Style</a></h3><div><fieldse
 }
 	
 function getChampFromServer() {
-	$.getJSON( $("#urlGrid").val(), function(data) {
+	$.get( $("#urlGrid").val(), function(data) {
 				$("#gridChamp").html("");
   				$.each(data, function(key, val) {
   					$("#gridChamp").append('<label for="'+val["name"]+'">'+val["verbose_name"]+'</label><input type="checkbox" id="'+val["name"]+'">');
@@ -154,10 +154,10 @@ $(".widget-selected table").jqGrid('navGrid','#pager',
 
 function SaveGrid(elem) {
 champs = $("#gridChamp input:checked");
-$.getJSON( $("#urlGrid").val(), RefreshGrid(champs));
+$.get( $("#urlGrid").val(), RefreshGrid(champs));
 }
 
 function SaveForm(elem) {
 champs = $("#gridChamp input:checked");
-$.getJSON( $("#urlGrid").val(), RefreshGrid(champs));
+$.get( $("#urlGrid").val(), RefreshGrid(champs));
 }
